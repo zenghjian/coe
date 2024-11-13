@@ -1,0 +1,29 @@
+{
+    "name": "faust_test",
+    "n_gpu": 1,
+    "seed": 12121,
+    "arch": {
+        "type": "CoeNet",
+        "args": {}
+    },
+    "dataset": {
+        "type": "FAUST_Dataset",
+        "args": {
+            "data_dir": "./data/FAUST"
+        }
+    },
+    "data_loader": {
+        "type": "FAUST_DataLoader",
+        "args": {
+            "batch_size": 1,
+            "n_eig": 80,
+            "input_type": "xyz",
+            "descriptor": "hks",
+            "descriptor_dim": 512,
+            "shuffle": false,
+            "validation_split": 0,
+            "num_workers": 0,
+            "base_input_dir": "./input/faust"
+        }
+    }
+}

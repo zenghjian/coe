@@ -1,0 +1,72 @@
+{
+    "name": "faust",
+    "n_gpu": 1,
+    "seed": 12121,
+    "arch": {
+        "type": "CoeNet",
+        "args": {
+            "attention": true
+        }
+    },
+    "dataset": {
+        "type": "FAUST_Dataset",
+        "args": {
+            "data_dir": "./data/FAUST"
+        }
+    },
+    "data_loader": {
+        "type": "FAUST_DataLoader",
+        "args": {
+            "batch_size": 1,
+            "n_eig": 80,
+            "input_type": "xyz",
+            "descriptor": "hks",
+            "descriptor_dim": 512,
+            "descriptor_dir": "",
+            "shuffle": true,
+            "validation_split": 0,
+            "num_workers": 0,
+            "base_input_dir": "./input/faust"
+        }
+    },
+    "optimizer": {
+        "type": "Adam",
+        "args": {
+            "lr": 1e-3,
+            "weight_decay": 0,
+            "amsgrad": true
+        }
+    },
+    "loss": {
+        "type": "ConsistentLoss",
+        "args": {
+            "mu_off": 1,
+            "mu_pos": 5e1,
+            "mu_ortho": 1e3,
+            "A_ortho": true
+        }
+    },
+    "metrics": [
+        "off_penalty_loss",
+        "pos_contrastive_loss",
+        "ortho_loss",
+        "learning_rate"
+    ],
+    "lr_scheduler": {
+        "type": "CosineAnnealingLR",
+        "args": {
+            "T_max": 50,
+            "eta_min": 0.0002
+        }
+    },
+    "trainer": {
+        "epochs": 50,
+        "save_dir": "saved/",
+        "save_period": 20,
+        "verbosity": 2,
+        "monitor": "min val_loss",
+        "early_stop": 10,
+        "tensorboard": true,
+        "consistent_error_threshold": null
+    }
+}
