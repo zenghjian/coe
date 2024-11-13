@@ -1,4 +1,4 @@
-# Deep Coupled Embedding for Non-Rigid  Point Cloud Correspondences
+# CoE: Deep Coupled Embedding for Non-Rigid Point Cloud Correspondences
 ![img](figure/teaser.jpg)
 This repository contains the code for the paper  
 [CoE: Deep Coupled Embedding for Non-Rigid Point Cloud Correspondences]()
