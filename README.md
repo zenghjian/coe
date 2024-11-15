@@ -82,7 +82,7 @@ If you find the code is useful, please cite the following paper
 
 ```bibtex
 @inproceedings{zeng2024,
-    title = {CoE: Deep Coupled Embedding for Non-Rigid Point Cloud Correspondences},
+    title = {{CoE}: Deep Coupled Embedding for Non-Rigid Point Cloud Correspondences},
     author = {Zeng, Huajian and Gao, Maolin and Cremers, Daniel},
     booktitle = {International Conference on 3D Vision (3DV)},
     month = {March},
