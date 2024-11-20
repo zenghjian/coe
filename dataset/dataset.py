@@ -124,3 +124,46 @@ class SCAPE_Dataset(Dataset):
         """        
         # print(f'the {idx}-th shape pair = {self.collection_list[idx]}')
         return self.collection_list[idx]
+    
+class SURREAL_Dataset(Dataset):
+    def __init__(self, data_dir, split='train'):
+        """
+        Args:
+            data_dir: The relative directory that contains all objects.
+            src_name: The name of the dataset source, e.g., tosca_off
+            obj: Indicate on which object this dataset should collect the different shapes. 
+            collection_size: Indicate the size of the collection as each sample.
+        """
+        self.off_dir = osp.abspath(osp.join(data_dir, 'off'))
+        self.off_list = list(sorted(glob(f'{self.off_dir}/*.off')))
+        print(f'Found {len(self.off_list)} .off files in {self.off_dir}.')
+        self.split = split
+       
+        if self.split == 'train':
+            self.data = self.off_list
+            index = range(len(self.data))
+            index_combinations = list(combinations(index, r=2))
+            self.collection_list = [(self.data[i], self.data[j]) for i, j in index_combinations]     
+            print(f'training with {len(self.collection_list)} combinations of 5000 shape')
+            index_combinations.clear()
+        else:
+            self.collection_list = []
+            print(f'surreal do not need validation or test set')
+    def __len__(self):
+        """
+        Return the length of the self.shape_collections_list. It is defined as the number of shape collections on the same object.
+        """
+        return len(self.collection_list)
+
+    def __getitem__(self, idx):
+        """
+        Return the indices of the idx-th collection in the self.shape_collections_list.
+
+        Args:
+            idx: Indicating the index of the shape collection in the list.
+
+        Return:
+            tuple of a shape indices collection
+        """        
+        # print(f'the {idx}-th shape pair = {self.collection_list[idx]}')
+        return self.collection_list[idx]

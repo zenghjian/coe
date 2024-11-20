@@ -22,6 +22,7 @@ pip install -r requirements.txt
 Please download the datasets from the following links:
 - [FAUST](https://drive.google.com/file/d/1ISqBLo6twUILJ9CbH3Kh34kEikGzRDlY/view?usp=sharing)
 - [SCAPE](https://drive.google.com/file/d/1Q0O-v8LUpXJDazHmcKjW50Md4CEUYrQL/view?usp=sharing)
+- [SURREAL](https://drive.google.com/file/d/1D_FHv7UHHbcXquCR-BYs1w5PJiwtqgkY/view)
 
 and put them in the `./data` folder.
 
@@ -34,6 +35,7 @@ The data is organized as follows:
     ├── SCAPE
         ├── off
         ├── corres
+...
 ```
 
 We extend our gratitude to the original dataset providers for their valuable contributions and we acknowledge that full credit belongs to the original authors.
