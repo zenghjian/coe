@@ -59,7 +59,7 @@ python test.py --config config/scape_test.json -d scape -m checkpoints/scape.pth
 The evaluation results will be saved in a subfolder under the model path.
 ## Pretrained Models
 
-We provide pretrained models for the FAUST and SCAPE dataset. You can find the model in the `checkpoints` folder.
+We provide pretrained models for the FAUST, SCAPE and SURREAL dataset. You can find the model in the `checkpoints` folder.
 
 ## Visualization
 
