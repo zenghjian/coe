@@ -3,8 +3,6 @@
 This repository contains the code for the paper  
 [CoE: Deep Coupled Embedding for Non-Rigid Point Cloud Correspondences](https://arxiv.org/abs/2412.05557)
 
-### This code is under construction. The final version of code will be released soon.
-
 ## Installation
 
 - Ubuntu 20.04
@@ -57,6 +55,11 @@ python test.py --config config/scape_test.json -d scape -m checkpoints/scape.pth
 ```
 
 The evaluation results will be saved in a subfolder under the model path.
+
+And in Matlab, you can run the following code to evaluate the geodesic error results:
+```matlab
+eval/eval_scaperm.m
+```
 ## Pretrained Models
 
 We provide pretrained models for the FAUST, SCAPE and SURREAL dataset. You can find the model in the `checkpoints` folder.
